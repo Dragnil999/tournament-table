@@ -5,16 +5,6 @@ import com.example.tournamenttable.ui.StandingsTable;
 import java.util.*;
 
 public class StandingsTableViewModel {
-    private static StandingsTableViewModel viewModel;
-    private StandingsTableViewModel() {  }
-
-    public static StandingsTableViewModel newInstance() {
-        if (viewModel == null) {
-            viewModel = new StandingsTableViewModel();
-        }
-        return viewModel;
-    }
-
     private final Map<Integer, Integer> commandsScore = new HashMap<>();
 
     public void saveScore(int line, int value) {

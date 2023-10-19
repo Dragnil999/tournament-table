@@ -11,23 +11,23 @@ public class StandingsTable {
     private static final String SUMMARY_SCORE_TEXT = "Сумма очков";
     private static final String LEADERBOARD_TEXT = "Место";
     public static final String PLACE_TEXT = "Нет места";
-    private final StandingsTableViewModel viewModel = StandingsTableViewModel.newInstance();
+    private final StandingsTableViewModel viewModel = new StandingsTableViewModel();
     private final HBox root;
     private final VBox tableView;
     private final VBox summaryScoreView;
     private final VBox leaderboardView;
     private TextField[][] table;
 
-    public StandingsTable() {
+    public StandingsTable(int size) {
         root = new HBox();
         tableView = new VBox();
-        updateTable(4);
+        updateTable(size);
         summaryScoreView = new VBox(getSummaryScoreView());
         leaderboardView = new VBox(getLeaderboardView());
         setListeners();
     }
 
-    public void updateTable(int size) {
+    private void updateTable(int size) {
         table = new TextField[size][size];
         for (int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
